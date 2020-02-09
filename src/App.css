@@ -2,37 +2,105 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#countdown {
+  position: absolute;
+  z-index: 99999;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50px;
+  padding: 40px;
+  font-size: 26px;
+  color: #f8667f;
+  width: 70%;
+  max-width: 650px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.slick-slide img {
+  max-height: 100vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.ver1 {
+  top: 10% !important;
+	left: 10% !important;
 }
 
-.App-link {
-  color: #61dafb;
+.ver2 {
+  top: 60% !important;
+	left: 20% !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ver3 {
+  top: 30% !important;
+	left: 70% !important;
+}
+
+.ver4 {
+  top: 80% !important;
+	left: 80% !important;
+}
+
+.heart{
+	position: absolute;
+	width: 100px;
+	height: 90px;
+	top: 50%;
+	left: 50%;
+	margin-top: -45px;
+	margin-left: -50px;
+  z-index: 999999;
+}
+.heart:before, .heart:after{
+	position: absolute;
+	content: "";
+	left: 50px;
+	top: 0;
+	width: 50px;
+	height: 80px;
+	background: #f1c5cf;
+	border-radius: 50px 50px 0 0;
+	transform: rotate(-45deg);
+	transform-origin: 0 100%;
+}
+.heart:after{
+	left: 0;
+	transform: rotate(45deg);
+	transform-origin: 100% 100%;
+}
+.love1{
+	animation: heart-animation 1s linear .4s infinite;
+}
+.love2{
+	animation: beating .5s linear infinite alternate;
+}
+.love1:after, .love1:before{
+	background-color: #ff7693;
+}
+
+@keyframes beating{
+	0%{
+		transform: scale(1.5);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
+@keyframes heart-animation{
+	46%{
+		transform: scale(1);
+	}
+	50%{
+		transform: scale(1.3);
+	}
+	52%{
+		transform: scale(1.5);
+	}
+	55%{
+		transform: scale(3);
+	}
+	100%{
+		opacity: 0;
+		transform: scale(50);
+	}
 }
