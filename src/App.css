@@ -18,7 +18,8 @@
 }
 
 .slick-slide img {
-  max-height: 100vh;
+  height: 100vh;
+  width: auto;
 }
 
 .ver1 {
@@ -37,7 +38,7 @@
 }
 
 .ver4 {
-  top: 80% !important;
+  top: 60% !important;
 	left: 80% !important;
 }
 
