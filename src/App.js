@@ -45,21 +45,21 @@ function App() {
     };
   return (
     <div className="App">
-      <div class="heart love1" style={isMobile ? {top: '20%'} : {}}></div>
-      <div class="heart love2" style={isMobile ? {top: '20%'} : {}}></div>
+      <div className="heart love1" style={isMobile ? {top: '20%'} : {}}></div>
+      <div className="heart love2" style={isMobile ? {top: '20%'} : {}}></div>
       {isMobile ? '' :
         <div>
-          <div class="heart love1 ver1"></div>
-          <div class="heart love2 ver1"></div>
+          <div className="heart love1 ver1"></div>
+          <div className="heart love2 ver1"></div>
 
-          <div class="heart love1 ver2"></div>
-          <div class="heart love2 ver2"></div>
+          <div className="heart love1 ver2"></div>
+          <div className="heart love2 ver2"></div>
 
-          <div class="heart love1 ver3"></div>
-          <div class="heart love2 ver3"></div>
+          <div className="heart love1 ver3"></div>
+          <div className="heart love2 ver3"></div>
 
-          <div class="heart love1 ver4"></div>
-          <div class="heart love2 ver4"></div>
+          <div className="heart love1 ver4"></div>
+          <div className="heart love2 ver4"></div>
         </div>
       }
       <Slider {...sliderSettings}>
