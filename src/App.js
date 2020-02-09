@@ -29,7 +29,9 @@ function App() {
       return "Þú ert á leiðinni!";
     } else {
       // Render a countdown
-      return <span>{days} dagar {hours} klukkustundir {minutes} mínútur og {seconds} sekúndur</span>;
+      return <span>
+            {days} {days%10 === 1 ? 'dag' : 'dagar'} {hours} {hours%10 === 1 ? 'klukkustund' : 'klukkustundir'} {minutes} {minutes%10 === 1 ? 'mínútu' : 'mínútur'} {seconds} {seconds%10 === 1 ? 'sekúndu' : 'sekúndur'}
+          </span>;
     }
   };
   var sliderSettings = {
@@ -43,8 +45,8 @@ function App() {
     };
   return (
     <div className="App">
-      <div class="heart love1"></div>
-      <div class="heart love2"></div>
+      <div class="heart love1" style={isMobile ? {top: '20%'} : {}}></div>
+      <div class="heart love2" style={isMobile ? {top: '20%'} : {}}></div>
       {isMobile ? '' :
         <div>
           <div class="heart love1 ver1"></div>
