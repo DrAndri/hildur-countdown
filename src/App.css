@@ -2,17 +2,23 @@
   text-align: center;
 }
 
-#countdown {
+#countdownLoftid {
+  font-size: 18px;
+  bottom: 0;
+  padding: 20px;
+}
+
+.banner {
   position: absolute;
   z-index: 99999;
-  bottom: 10%;
+  color: #f8667f;
   left: 50%;
   transform: translate(-50%, 0%);
+  bottom: 10%;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 50px;
   padding: 40px;
   font-size: 26px;
-  color: #f8667f;
   width: 70%;
   max-width: 650px;
 }
@@ -51,6 +57,9 @@
 	margin-top: -45px;
 	margin-left: -50px;
   z-index: 999999;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
 }
 .heart:before, .heart:after{
 	position: absolute;

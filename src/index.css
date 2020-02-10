@@ -9,6 +9,7 @@ body {
   margin: auto;
   overflow: hidden;
   max-height: 100vh;
+  height: 100%;
 }
 
 code {

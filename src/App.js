@@ -10,7 +10,6 @@ import hildur5 from "./hildur5.jpg";
 import hildur6 from "./hildur6.jpg";
 import hildur7 from "./hildur7.jpg";
 import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 import './App.css';
 
@@ -23,16 +22,41 @@ function App() {
   };
   let hildurLendir = new Date(Date.UTC(2020, 3, 2, 22, 30, 0, 0));
   let hildurLoftid = new Date(Date.UTC(2020, 3, 2, 20, 5, 0, 0));
-  const renderer = ({ total, days, hours, minutes, seconds, completed }) => {
-    if (completed) {
-      // Render a completed state
-      return "Þú ert á leiðinni!";
-    } else {
-      // Render a countdown
-      return <span>
-            {days} {days%10 === 1 ? 'dag' : 'dagar'} {hours} {hours%10 === 1 ? 'klukkustund' : 'klukkustundir'} {minutes} {minutes%10 === 1 ? 'mínútu' : 'mínútur'} {seconds} {seconds%10 === 1 ? 'sekúndu' : 'sekúndur'}
-          </span>;
-    }
+  let formatTime = (days, hours, minutes, seconds) => {
+    return <span>
+          {days === 0 ? '' : <span>{days} {days%10 === 1 ? 'dag' : 'daga'} </span>}
+          {hours === 0 ? '' : <span>{hours} {hours%10 === 1 ? 'klukkustund' : 'klukkustundir'} </span>}
+          {minutes === 0 ? '' : <span>{minutes} {minutes%10 === 1 ? 'mínútu' : 'mínútur'} </span>}
+          {seconds === 0 ? '' : <span>{seconds} {seconds%10 === 1 ? 'sekúndu' : 'sekúndur'}</span>}
+        </span>;
+  };
+  const rendererLendir = ({ total, days, hours, minutes, seconds, completed }) => {
+    return (
+      <div className={'banner'} id={'countdownLendir'}>
+        {completed ?
+          <span>Þú ert komin!</span>
+          :
+          <span>Hildur lendir á Íslandi eftir:
+            <br/>
+            {formatTime(days, hours, minutes, seconds)}
+          </span>
+        }
+      </div>
+    );
+  };
+  const rendererLoftid = ({ total, days, hours, minutes, seconds, completed }) => {
+    return (
+      <div className={'banner'} id={'countdownLoftid'}>
+        {completed ?
+          <span>Þú ert í flugvélinni!</span>
+          :
+          <span>Hildur fer í flugvélina eftir:
+            <br/>
+            {formatTime(days, hours, minutes, seconds)}
+          </span>
+        }
+      </div>
+    );
   };
   var sliderSettings = {
       dots: false,
@@ -64,35 +88,37 @@ function App() {
       }
       <Slider {...sliderSettings}>
         <div>
-          <img src={hildur1}/>
+          <img alt="hildur-1" src={hildur1}/>
         </div>
         <div>
-          <img src={hildur2}/>
+          <img alt="hildur-2" src={hildur2}/>
         </div>
         <div>
-          <img src={hildur3}/>
+          <img alt="hildur-3" src={hildur3}/>
         </div>
         <div>
-          <img src={hildur4}/>
+          <img alt="hildur-4" src={hildur4}/>
         </div>
         <div>
-          <img src={hildur5}/>
+          <img alt="hildur-5" src={hildur5}/>
         </div>
         <div>
-          <img src={hildur6}/>
+          <img alt="hildur-6" src={hildur6}/>
         </div>
         <div>
-          <img src={hildur7}/>
+          <img alt="hildur-7" src={hildur7}/>
         </div>
       </Slider>
-      <div id={'countdown'}>
-        <span>Hildur lendir á Íslandi eftir:</span>
-        <br/>
+      <Countdown
+        date={hildurLendir}
+        renderer={rendererLendir}
+        now={now} />
+      {isMobile ? '' :
         <Countdown
-          date={hildurLendir}
-          renderer={renderer}
+          date={hildurLoftid}
+          renderer={rendererLoftid}
           now={now} />
-      </div>
+      }
     </div>
   );
 }
