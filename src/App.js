@@ -20,8 +20,8 @@ function App() {
                             date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
     return utc;
   };
-  let hildurLendir = new Date(Date.UTC(2020, 3, 2, 22, 30, 0, 0));
-  let hildurLoftid = new Date(Date.UTC(2020, 3, 2, 20, 5, 0, 0));
+  let hildurLendir = new Date(Date.UTC(2020, 5, 24, 15, 25, 0, 0));
+  let hildurLoftid = new Date(Date.UTC(2020, 5, 24, 12, 10, 0, 0));
   let formatTime = (days, hours, minutes, seconds) => {
     return <span>
           {days === 0 ? '' : <span>{days} {days%10 === 1 ? 'dag' : 'daga'} </span>}
